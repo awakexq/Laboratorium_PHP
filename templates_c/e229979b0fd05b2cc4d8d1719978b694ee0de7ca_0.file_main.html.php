@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.4.2, created on 2025-03-25 02:54:02
+/* Smarty version 5.4.2, created on 2025-03-25 09:32:21
   from 'file:C:\xampp\htdocs\php_04_szablony_smarty\app\../templates/main.html' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.4.2',
-  'unifunc' => 'content_67e20cba8790c7_13693812',
+  'unifunc' => 'content_67e26a157feb80_25841446',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e229979b0fd05b2cc4d8d1719978b694ee0de7ca' => 
     array (
       0 => 'C:\\xampp\\htdocs\\php_04_szablony_smarty\\app\\../templates/main.html',
-      1 => 1742867636,
+      1 => 1742891540,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_67e20cba8790c7_13693812 (\Smarty\Template $_smarty_tpl) {
+function content_67e26a157feb80_25841446 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\xampp\\htdocs\\php_04_szablony_smarty\\templates';
 $_smarty_tpl->getInheritance()->init($_smarty_tpl, false);
 ?>
@@ -35,7 +35,7 @@ $_smarty_tpl->getInheritance()->init($_smarty_tpl, false);
 		<title>Alpha by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="<?php echo $_smarty_tpl->getValue('app_url');?>
+		<link rel="stylesheet" href="<?php echo $_smarty_tpl->getValue('conf')->app_url;?>
 /css/main.css" />
 	</head>
 	<body class="landing is-preload">
@@ -91,7 +91,7 @@ $_smarty_tpl->getInheritance()->init($_smarty_tpl, false);
 			<!-- Kalkulator -->
 			<div id="app_content" class="content">
 				<?php 
-$_smarty_tpl->getInheritance()->instanceBlock($_smarty_tpl, 'Block_25299101967e20cba878291_10848122', 'content');
+$_smarty_tpl->getInheritance()->instanceBlock($_smarty_tpl, 'Block_150260543967e26a157f8bc3_06153410', 'content');
 ?>
 
 					</div>
@@ -176,7 +176,7 @@ $_smarty_tpl->getInheritance()->instanceBlock($_smarty_tpl, 'Block_25299101967e2
 </html>
 <?php }
 /* {block 'content'} */
-class Block_25299101967e20cba878291_10848122 extends \Smarty\Runtime\Block
+class Block_150260543967e26a157f8bc3_06153410 extends \Smarty\Runtime\Block
 {
 public function callBlock(\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\xampp\\htdocs\\php_04_szablony_smarty\\templates';
