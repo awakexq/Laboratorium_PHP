@@ -1,4 +1,4 @@
-{extends file="../templates/main.html"}
+{extends file=$conf->root_path|cat:"/templates/main.html"}
 {block name=content}
 <section id="main" class="container" style="padding-bottom: 250px;">
 	<section class="box special" id="kalkulator">
@@ -10,7 +10,7 @@
 		</header>
 		<div class="pure-g">
 			<div class="l-box-lrg pure-u-1 pure-u-med-2-5">
-				<form class="pure-form pure-form-stacked" action="{$conf->app_url}/app/calc.php" method="post">
+				<form class="pure-form pure-form-stacked" action="{$conf->action_url}calcCompute" method="post">
 					<fieldset>
 						<label for="kwota">Kwota kredytu</label>
 						<input id="kwota" type="text" placeholder="Podaj kwotę" name="kwota" value="{$form->kwota}">

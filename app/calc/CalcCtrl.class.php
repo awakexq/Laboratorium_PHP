@@ -1,12 +1,13 @@
 <?php
 require_once $conf->root_path.'/lib/smarty/libs/Smarty.class.php';
 require_once $conf->root_path.'/lib/Messages.class.php';
-require_once $conf->root_path.'/app/CalcForm.class.php';
-require_once $conf->root_path.'/app/CalcResult.class.php';
+require_once $conf->root_path.'/app/calc/CalcForm.class.php';
+require_once $conf->root_path.'/app/calc/CalcResult.class.php';
 
 class CalcCtrl {
 
 	private $msgs;   //wiadomości dla widoku
+	private $infos;  //informacje dla widoku
 	private $form;   //dane formularza (do obliczeń i dla widoku)
 	private $result; //inne dane dla widoku
 
@@ -108,14 +109,15 @@ class CalcCtrl {
 		$smarty = new Smarty\Smarty();
 		$smarty->assign('conf',$conf);
 		
-		$smarty->assign('page_title','Laboratorium 5');
-		$smarty->assign('page_description','Obiektowość. Funkcjonalność aplikacji zamknięta w metodach różnych obiektów. Pełen model MVC.');
-		$smarty->assign('page_header','Obiekty w PHP');
+		$smarty->assign('page_title','Laboratorium 6');
+		$smarty->assign('page_description','Aplikacja z jednym "punktem wejścia". Model MVC, w którym jeden główny kontroler używa różnych obiektów kontrolerów w zależności od wybranej akcji - przekazanej parametrem.');
+		$smarty->assign('page_header','Kontroler główny');
 				
+		
 		$smarty->assign('msgs',$this->msgs);
 		$smarty->assign('form',$this->form);
 		$smarty->assign('res',$this->result);
 		
-		$smarty->display($conf->root_path.'/app/CalcView.html');
+		$smarty->display($conf->root_path.'/app/calc/CalcView.html');
 	}
 }
