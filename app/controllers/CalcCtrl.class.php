@@ -1,6 +1,8 @@
 <?php
-require_once 'CalcForm.class.php';
-require_once 'CalcResult.class.php';
+namespace app\controllers;
+
+use app\forms\CalcForm;
+use app\transfer\CalcResult;
 
 class CalcCtrl {
 
@@ -104,6 +106,6 @@ class CalcCtrl {
 		getSmarty()->assign('page_header','Kontroler główny');		
 		getSmarty()->assign('form',$this->form);
 		getSmarty()->assign('res',$this->result);
-		getSmarty()->display('CalcView.html');
+		getSmarty()->display('CalcView.tpl');
 
 	}}

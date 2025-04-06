@@ -1,4 +1,4 @@
-{extends file="main.html"}
+{extends file="main.tpl"}
 {block name=content}
 <section id="main" class="container" style="padding-bottom: 250px;">
 	<section class="box special" id="kalkulator">
