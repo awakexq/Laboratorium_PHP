@@ -5,4 +5,5 @@ Spis etapów (Branche)
 🌿 [Laboratorium_3](https://github.com/awakexq/Laboratorium_PHP/tree/Laboratorium_3): Dorobienie ochrony dla kalkulatora kredytowego<br>
 🌿 [Laboratorium_4](https://github.com/awakexq/Laboratorium_PHP/tree/Laboratorium_4): Stworzenie szablonowania Smarty<br>
 🌿 [Laboratorium_5](https://github.com/awakexq/Laboratorium_PHP/tree/Laboratorium_5): Obiektowość<br>
-🌿 [Laboratorium_6](https://github.com/awakexq/Laboratorium_PHP/tree/Laboratorium_6): Dodanie kontrolera głównego
+🌿 [Laboratorium_6](https://github.com/awakexq/Laboratorium_PHP/tree/Laboratorium_6): Dodanie kontrolera głównego<br>
+🌿 [Laboratorium_6_a](https://github.com/awakexq/Laboratorium_PHP/tree/Laboratorium_6_a): Nowa struktura
