@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.4.2, created on 2025-04-06 23:01:05
-  from 'file:main.html' */
+/* Smarty version 5.4.2, created on 2025-04-14 17:13:02
+  from 'file:main.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.4.2',
-  'unifunc' => 'content_67f2eb916f2570_69684932',
+  'unifunc' => 'content_67fd25fe98e316_14841464',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '6627c475316458aaaa45171c47a691c847876c89' => 
+    'b1d41dc24dc39bd07d6a3cd0ab5c322abc4b3703' => 
     array (
-      0 => 'main.html',
-      1 => 1743432015,
+      0 => 'main.tpl',
+      1 => 1744643557,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,8 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_67f2eb916f2570_69684932 (\Smarty\Template $_smarty_tpl) {
-$_smarty_current_dir = 'C:\\xampp\\htdocs\\php_06_kontroler_glowny\\app\\views\\templates';
+function content_67fd25fe98e316_14841464 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = 'C:\\xampp\\htdocs\\php_07_routing\\app\\views\\templates';
 $_smarty_tpl->getInheritance()->init($_smarty_tpl, false);
 ?>
 <!DOCTYPE HTML>
@@ -40,16 +40,6 @@ $_smarty_tpl->getInheritance()->init($_smarty_tpl, false);
 	</head>
 	<body class="landing is-preload">
 		<div id="page-wrapper">
-
-			<!-- Header -->
-				<header id="header" class="alt">
-					<nav id="nav">
-						<ul>
-							<li><a href="#" class="button">Zaloguj się</a></li>
-						</ul>
-					</nav>
-				</header>
-
 			<!-- Banner -->
 				<section id="banner">
 					<h2>Kalkulator kredytowy</h2>
@@ -91,7 +81,7 @@ $_smarty_tpl->getInheritance()->init($_smarty_tpl, false);
 			<!-- Kalkulator -->
 			<div id="app_content" class="content">
 				<?php 
-$_smarty_tpl->getInheritance()->instanceBlock($_smarty_tpl, 'Block_33055630267f2eb916f0569_85400420', 'content');
+$_smarty_tpl->getInheritance()->instanceBlock($_smarty_tpl, 'Block_172407319767fd25fe989253_32128103', 'content');
 ?>
 
 					</div>
@@ -176,10 +166,10 @@ $_smarty_tpl->getInheritance()->instanceBlock($_smarty_tpl, 'Block_33055630267f2
 </html>
 <?php }
 /* {block 'content'} */
-class Block_33055630267f2eb916f0569_85400420 extends \Smarty\Runtime\Block
+class Block_172407319767fd25fe989253_32128103 extends \Smarty\Runtime\Block
 {
 public function callBlock(\Smarty\Template $_smarty_tpl) {
-$_smarty_current_dir = 'C:\\xampp\\htdocs\\php_06_kontroler_glowny\\app\\views\\templates';
+$_smarty_current_dir = 'C:\\xampp\\htdocs\\php_07_routing\\app\\views\\templates';
 ?>
  Domyślna treść zawartości .... <?php
 }

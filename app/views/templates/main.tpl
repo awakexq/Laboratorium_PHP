@@ -1,29 +1,3 @@
-<?php
-/* Smarty version 5.4.2, created on 2025-04-06 23:49:35
-  from 'file:main.html' */
-
-/* @var \Smarty\Template $_smarty_tpl */
-if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
-  'version' => '5.4.2',
-  'unifunc' => 'content_67f2f6efab6801_44198252',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    '357816a9dd3ed7b0eb12ea42cc2a0286aed58d39' => 
-    array (
-      0 => 'main.html',
-      1 => 1743432015,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-))) {
-function content_67f2f6efab6801_44198252 (\Smarty\Template $_smarty_tpl) {
-$_smarty_current_dir = 'C:\\xampp\\htdocs\\php_06_nowastruktura\\app\\views\\templates';
-$_smarty_tpl->getInheritance()->init($_smarty_tpl, false);
-?>
 <!DOCTYPE HTML>
 <!--
 	Alpha by HTML5 UP
@@ -35,21 +9,10 @@ $_smarty_tpl->getInheritance()->init($_smarty_tpl, false);
 		<title>Alpha by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="<?php echo $_smarty_tpl->getValue('conf')->app_url;?>
-/css/main.css" />
+		<link rel="stylesheet" href="{$conf->app_url}/css/main.css" />
 	</head>
 	<body class="landing is-preload">
 		<div id="page-wrapper">
-
-			<!-- Header -->
-				<header id="header" class="alt">
-					<nav id="nav">
-						<ul>
-							<li><a href="#" class="button">Zaloguj się</a></li>
-						</ul>
-					</nav>
-				</header>
-
 			<!-- Banner -->
 				<section id="banner">
 					<h2>Kalkulator kredytowy</h2>
@@ -90,10 +53,7 @@ $_smarty_tpl->getInheritance()->init($_smarty_tpl, false);
 	</section>
 			<!-- Kalkulator -->
 			<div id="app_content" class="content">
-				<?php 
-$_smarty_tpl->getInheritance()->instanceBlock($_smarty_tpl, 'Block_95182336167f2f6efab4846_75599406', 'content');
-?>
-
+				{block name=content} Domyślna treść zawartości .... {/block}
 					</div>
 
 <!-- Kontakt-->
@@ -143,46 +103,13 @@ $_smarty_tpl->getInheritance()->instanceBlock($_smarty_tpl, 'Block_95182336167f2
 
 		</div>
 		<!-- Scripts -->
-			<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getValue('conf')->app_url;?>
-/js/jquery.min.js"><?php echo '</script'; ?>
->
-			<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getValue('conf')->app_url;?>
-/js/jquery.dropotron.min.js"><?php echo '</script'; ?>
->
-			<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getValue('conf')->app_url;?>
-/js/jquery.scrollex.min.js"><?php echo '</script'; ?>
->
-			<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getValue('conf')->app_url;?>
-/js/browser.min.js"><?php echo '</script'; ?>
->
-			<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getValue('conf')->app_url;?>
-/js/breakpoints.min.js"><?php echo '</script'; ?>
->
-			<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getValue('conf')->app_url;?>
-/js/util.js"><?php echo '</script'; ?>
->
-			<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getValue('conf')->app_url;?>
-/js/main.js"><?php echo '</script'; ?>
->
+			<script src="{$conf->app_url}/js/jquery.min.js"></script>
+			<script src="{$conf->app_url}/js/jquery.dropotron.min.js"></script>
+			<script src="{$conf->app_url}/js/jquery.scrollex.min.js"></script>
+			<script src="{$conf->app_url}/js/browser.min.js"></script>
+			<script src="{$conf->app_url}/js/breakpoints.min.js"></script>
+			<script src="{$conf->app_url}/js/util.js"></script>
+			<script src="{$conf->app_url}/js/main.js"></script>
 
 	</body>
 </html>
-<?php }
-/* {block 'content'} */
-class Block_95182336167f2f6efab4846_75599406 extends \Smarty\Runtime\Block
-{
-public function callBlock(\Smarty\Template $_smarty_tpl) {
-$_smarty_current_dir = 'C:\\xampp\\htdocs\\php_06_nowastruktura\\app\\views\\templates';
-?>
- Domyślna treść zawartości .... <?php
-}
-}
-/* {/block 'content'} */
-}

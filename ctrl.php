@@ -1,36 +1,20 @@
 <?php
 require_once 'init.php';
-// Skrypt kontrolera głównego jako jedyny "punkt wejścia" inicjuje aplikację.
+// Rozszerzenia:
+// Dodanie klasy Router oraz Route, które realizują idee przedstawione poprzednio, ale na wyższym poziomie i obiektowo.
+// Po pierwsze rezygnujemy ze struktury 'switch' w kontrolerze głównym i zastępujemy ją tablicą ścieżek przechowywaną
+// wewnątrz obiektu routera. Router powstaje w skrypcie init.php i jak inne ważne obekty jest dostępny przez getRouter().
 
-// Inicjacja ładuje konfigurację, definiuje funkcje getConf(), getMessages() oraz getSmarty(),
-// pozwalające odwołać się z każdego miejsca w systemie do obiektów konfiguracji, messages i smarty.
+// Odpowiednio nazwane metody routera realizują wszystkie zadania iplementowane uprzednio w funkcji control oraz strukturze 'switch'.
 
-// Ponadto ładuje skrypt funkcji pomocniczych (functions.php) oraz wczytuje parametr 'action' do zmiennej $action.
-// Wystarczy już tylko podjąć decyzję co zrobić na podstawie $action.
+// Oczywiście tym samym znika funkcja 'control' - jest ona prywatną metodą routera.
 
-// Dodatkowo zmieniono organizację kontrolerów i widoków. Teraz wszystkie są w odpowiednio nazwanych folderach w app
+getRouter()->setDefaultRoute('calcShow'); // akcja/ścieżka domyślna
+getRouter()->setLoginRoute('login'); // akcja/ścieżka na potrzeby logowania (przekierowanie, gdy nie ma dostępu)
 
-switch ($action) {
-	default : // 'calcView'
-	    // załaduj definicję kontrolera
-		include_once 'app/controllers/CalcCtrl.class.php';
-		// utwórz obiekt i uzyj
-		$ctrl = new CalcCtrl ();
-		$ctrl->generateView ();
-	break;
-	case 'calcCompute' :
-		// załaduj definicję kontrolera
-		include_once 'app/controllers/CalcCtrl.class.php';
-		// utwórz obiekt i uzyj
-		$ctrl = new CalcCtrl ();
-		$ctrl->process ();
-	break;
-	case 'action1' :
-		
-		print('hello');
-	break;
-	case 'action2' :
-		
-		print('goodbye');
-	break;
-}
+getRouter()->addRoute('calcShow',    'CalcCtrl',  ['user','admin']);
+getRouter()->addRoute('calcCompute', 'CalcCtrl',  ['user','admin']);
+getRouter()->addRoute('login',       'LoginCtrl');
+getRouter()->addRoute('logout',      'LoginCtrl', ['user','admin']);
+
+getRouter()->go(); //wybiera i uruchamia odpowiednią ścieżkę na podstawie parametru 'action';
