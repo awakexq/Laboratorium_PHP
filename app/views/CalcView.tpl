@@ -10,7 +10,6 @@
 			<p>Wpisz kwotę kredytu, ilość lat oraz oprocentowanie</p>
 		</header>
 
-		<!-- Dodanie "Wyloguj" i informacji o użytkowniku w prawym górnym rogu kalkulatora -->
 		<div style="position: absolute; top: 20px; right: 20px; text-align: right;">
 			<a href="{$conf->action_url}logout" class="pure-menu-heading pure-menu-link" style="text-decoration: none; font-size: 22px; font-weight: bold; color: red;">Wyloguj</a>
 			<div style="color: #555; font-size: 17px; margin-top: 5px; font-weight: bold;">
