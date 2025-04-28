@@ -29,7 +29,7 @@
 				<section>
 					<span class="icon solid major fa-bolt accent2"></span>
 					<h3>Kliknij w kalkulator</h3>
-					<p>Przejdź do kalkulatora kredytowego, aby obliczyć wysokość raty kredytu. Znajdziesz go poniżej na stronie.</p>
+					<p>Przejdź do kalkulatora kredytowego, aby obliczyć swoją wysokość raty kredytu. Znajdziesz go poniżej na stronie.</p>
 				</section>
 				<section>
 					<span class="icon solid major fa-chart-area accent3"></span>
