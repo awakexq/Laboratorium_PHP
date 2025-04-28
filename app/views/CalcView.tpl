@@ -103,7 +103,7 @@
 
 <style>
 .history-box {
-    margin-top: 30px;
+    margin-top: 25px;
     padding: 15px;
     background: #f5f5f5;
     border-radius: 5px;
