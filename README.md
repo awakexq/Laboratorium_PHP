@@ -8,4 +8,6 @@ Spis etapów (Branche)
 🌿 [Laboratorium_6](https://github.com/awakexq/Laboratorium_PHP/tree/Laboratorium_6): Dodanie kontrolera głównego<br>
 🌿 [Laboratorium_6a](https://github.com/awakexq/Laboratorium_PHP/tree/Laboratorium_6A): Nowa struktura<br>
 🌿 [Laboratorium_6b](https://github.com/awakexq/Laboratorium_PHP/tree/Laboratorium_6B): Przestrzenie nazw i automatyczne ładowanie klas<br>
-🌿 [Laboratorium_7](https://github.com/awakexq/Laboratorium_PHP/tree/Laboratorium_7): Ochrona zasobów oraz routing
+🌿 [Laboratorium_7](https://github.com/awakexq/Laboratorium_PHP/tree/Laboratorium_7): Ochrona zasobów oraz routing<br>
+🌿 [Laboratorium_8](https://github.com/awakexq/Laboratorium_PHP/tree/Laboratorium_8): Projekt bazo-danowy (biblioteka Medoo)
+
