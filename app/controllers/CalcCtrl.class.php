@@ -1,33 +1,21 @@
 <?php
-// W skrypcie definicji kontrolera nie trzeba dołączać już niczego.
-// Kontroler wskazuje tylko za pomocą 'use' te klasy z których jawnie korzysta
-// (gdy korzysta niejawnie to nie musi - np używa obiektu zwracanego przez funkcję)
-
-// Zarejestrowany autoloader klas załaduje odpowiedni plik automatycznie w momencie, gdy skrypt będzie go chciał użyć.
-// Jeśli nie wskaże się klasy za pomocą 'use', to PHP będzie zakładać, iż klasa znajduje się w bieżącej
-// przestrzeni nazw - tutaj jest to przestrzeń 'app\controllers'.
-
-// Przypominam, że tu również są dostępne globalne funkcje pomocnicze - o to nam właściwie chodziło
-
 namespace app\controllers;
 
-//zamieniamy zatem 'require' na 'use' wskazując jedynie przestrzeń nazw, w której znajduje się klasa
 use app\forms\CalcForm;
 use app\transfer\CalcResult;
 
 class CalcCtrl {
 
-	private $form;   //dane formularza (do obliczeń i dla widoku)
-	private $result; //inne dane dla widoku
+    private $form;
+    private $result;
+    private $history;
 
-	/** 
-	 * Konstruktor - inicjalizacja właściwości
-	 */
-	public function __construct(){
-		//stworzenie potrzebnych obiektów
-		$this->form = new CalcForm();
-		$this->result = new CalcResult();
-	}
+    public function __construct(){
+        $this->form = new CalcForm();
+        $this->result = new CalcResult();
+        $this->history = array();
+    }
+
 
 	/** 
 	 * Pobranie parametrów
@@ -79,50 +67,73 @@ class CalcCtrl {
 		return ! getMessages()->isError();
 	}
 	
-	/** 
-	 * Pobranie wartości, walidacja, obliczenie i wyświetlenie
-	 */
 	public function action_calcCompute(){
+        $this->getParams();
+        
+        if ($this->validate()) {
+            $this->form->kwota = intval($this->form->kwota);
+            $this->form->lata = intval($this->form->lata);
+            $this->form->oprocentowanie = intval($this->form->oprocentowanie);
+            
+            $miesieczna_stopa = ($this->form->oprocentowanie / 100) / 12;
+            $miesiace = $this->form->lata * 12;
+            
+            if ($miesieczna_stopa > 0) {
+                $this->result->result = $this->form->kwota * ($miesieczna_stopa * pow(1 + $miesieczna_stopa, $miesiace)) / (pow(1 + $miesieczna_stopa, $miesiace) - 1);
+            } else {
+                $this->result->result = $this->form->kwota / $miesiace;
+            }
 
-		$this->getParams();
-		
-		if ($this->validate()) {
-				
-			//konwersja parametrów na int
-			$this->form->kwota = intval($this->form->kwota);
-			$this->form->lata= intval($this->form->lata);
-			$this->form->oprocentowanie= intval($this->form->oprocentowanie);
-			getMessages()->addInfo('Parametry poprawne.');
-				
-			//wykonanie operacji
-			$miesieczna_stopa = ($this->form->oprocentowanie / 100) / 12;
-			$miesiace = $this->form->lata * 12;
-			if ($miesieczna_stopa > 0) {
-				$this->result->result = $this->form->kwota * ($miesieczna_stopa * pow(1 + $miesieczna_stopa, $miesiace)) / (pow(1 + $miesieczna_stopa, $miesiace) - 1);
-			} else {
-				$this->result = $this->form->kwota / $miesiace;
-			}
-			
-			getMessages()->addInfo('Wykonano obliczenia.');
-		}
-		
-		$this->generateView();
-	}
-	public function action_calcShow(){
-		getMessages()->addInfo('Witaj w kalkulatorze');
-		$this->generateView();
-	}
-	/**
-	 * Wygenerowanie widoku
-	 */
-	public function generateView(){
+            try {
+                $database = getDB();
+                $database->insert("wynik", [
+                    "kwota" => $this->form->kwota,
+                    "lat" => $this->form->lata,
+                    "procent" => $this->form->oprocentowanie,
+                    "rata" => $this->result->result,
+                    "data" => date("Y-m-d H:i:s")
+                ]);
+            } catch (\PDOException $ex) {
+                getMessages()->addError("Błąd bazy danych: " . $ex->getMessage());
+            }
+        }
+        
+        // Zawsze ładujemy historię
+        $this->loadHistory();
+        $this->generateView();
+    }
 
-		getSmarty()->assign('user',unserialize($_SESSION['user']));
-				
-		getSmarty()->assign('page_title','Super kalkulator - role');
+    public function action_calcShow(){
+        getMessages()->addInfo('Witaj w kalkulatorze');
+        $this->loadHistory();
+        $this->generateView();
+    }
 
-		getSmarty()->assign('form',$this->form);
-		getSmarty()->assign('res',$this->result);
-		
-		getSmarty()->display('CalcView.tpl');
-	}}
+    private function loadHistory() {
+        try {
+            $database = getDB();
+            $this->history = $database->select("wynik", [
+                "kwota",
+                "lat",
+                "procent",
+                "rata", 
+                "data"
+            ], [
+                "ORDER" => ["data" => "DESC"],
+                "LIMIT" => 5
+            ]);
+        } catch (\PDOException $ex) {
+            getMessages()->addError("Błąd przy ładowaniu historii: " . $ex->getMessage());
+        }
+    }
+
+    public function generateView(){
+        getSmarty()->assign('user', unserialize($_SESSION['user']));
+        getSmarty()->assign('page_title', 'Kalkulator kredytowy');
+        getSmarty()->assign('form', $this->form);
+        getSmarty()->assign('res', $this->result);
+        getSmarty()->assign('history', $this->history);
+        
+        getSmarty()->display('CalcView.tpl');
+    }
+}

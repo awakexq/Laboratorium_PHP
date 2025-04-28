@@ -1,3 +1,29 @@
+<?php
+/* Smarty version 5.4.2, created on 2025-04-28 21:36:33
+  from 'file:main.tpl' */
+
+/* @var \Smarty\Template $_smarty_tpl */
+if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
+  'version' => '5.4.2',
+  'unifunc' => 'content_680ff4e12827a1_86684805',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '62c6970c581ab14bd6ef6424373e13254626ff92' => 
+    array (
+      0 => 'main.tpl',
+      1 => 1745876190,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+))) {
+function content_680ff4e12827a1_86684805 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = '/Applications/MAMP/htdocs/php_07_routing_test/app/views/templates';
+$_smarty_tpl->getInheritance()->init($_smarty_tpl, false);
+?>
 <!DOCTYPE HTML>
 <!--
 	Alpha by HTML5 UP
@@ -9,7 +35,8 @@
 		<title>Alpha by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{$conf->app_url}/css/main.css" />
+		<link rel="stylesheet" href="<?php echo $_smarty_tpl->getValue('conf')->app_url;?>
+/css/main.css" />
 	</head>
 	<body class="landing is-preload">
 		<div id="page-wrapper">
@@ -53,7 +80,10 @@
 	</section>
 			<!-- Kalkulator -->
 			<div id="app_content" class="content">
-				{block name=content} Domyślna treść zawartości .... {/block}
+				<?php 
+$_smarty_tpl->getInheritance()->instanceBlock($_smarty_tpl, 'Block_1111395045680ff4e1274295_80212060', 'content');
+?>
+
 			</div>
 			
 <!-- Kontakt-->
@@ -103,13 +133,45 @@
 
 		</div>
 		<!-- Scripts -->
-			<script src="{$conf->app_url}/js/jquery.min.js"></script>
-			<script src="{$conf->app_url}/js/jquery.dropotron.min.js"></script>
-			<script src="{$conf->app_url}/js/jquery.scrollex.min.js"></script>
-			<script src="{$conf->app_url}/js/browser.min.js"></script>
-			<script src="{$conf->app_url}/js/breakpoints.min.js"></script>
-			<script src="{$conf->app_url}/js/util.js"></script>
-			<script src="{$conf->app_url}/js/main.js"></script>
+			<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getValue('conf')->app_url;?>
+/js/jquery.min.js"><?php echo '</script'; ?>
+>
+			<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getValue('conf')->app_url;?>
+/js/jquery.dropotron.min.js"><?php echo '</script'; ?>
+>
+			<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getValue('conf')->app_url;?>
+/js/jquery.scrollex.min.js"><?php echo '</script'; ?>
+>
+			<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getValue('conf')->app_url;?>
+/js/browser.min.js"><?php echo '</script'; ?>
+>
+			<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getValue('conf')->app_url;?>
+/js/breakpoints.min.js"><?php echo '</script'; ?>
+>
+			<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getValue('conf')->app_url;?>
+/js/util.js"><?php echo '</script'; ?>
+>
+			<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getValue('conf')->app_url;?>
+/js/main.js"><?php echo '</script'; ?>
+>
 
 	</body>
-</html>
+</html><?php }
+/* {block 'content'} */
+class Block_1111395045680ff4e1274295_80212060 extends \Smarty\Runtime\Block
+{
+public function callBlock(\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = '/Applications/MAMP/htdocs/php_07_routing_test/app/views/templates';
+?>
+ Domyślna treść zawartości .... <?php
+}
+}
+/* {/block 'content'} */
+}

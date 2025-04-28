@@ -67,5 +67,55 @@
 		</div>
 	</section>
 </section>
+<section id="main" class="container" style="padding-bottom: 250px;">
+				<section class="box special" id="lista_wynikow" style="position: relative;">
+					<div class="history-box">
+    <h3>Ostatnie obliczenia:</h3>
+    {if count($history) > 0}
+        <table class="pure-table">
+            <thead>
+                <tr>
+                    <th>Kwota</th>
+                    <th>Lata</th>
+                    <th>Oprocentowanie</th>
+                    <th>Rata</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                {foreach $history as $h}
+                <tr>
+                    <td>{$h.kwota} zł</td>
+                    <td>{$h.lat}</td>
+                    <td>{$h.procent}%</td>
+                    <td>{$h.rata|number_format:2} zł</td>
+                    <td>{$h.data|date_format:"Y-m-d H:i"}</td>
+                </tr>
+                {/foreach}
+            </tbody>
+        </table>
+    {else}
+        <p>Brak zapisanych wyników</p>
+    {/if}
+</div>
+				</section>
+			</section>
 
+<style>
+.history-box {
+    margin-top: 30px;
+    padding: 15px;
+    background: #f5f5f5;
+    border-radius: 5px;
+}
+.history-box table {
+    width: 100%;
+}
+.result {
+    margin: 20px 0;
+    padding: 10px;
+    background: #e6f7ff;
+    border-radius: 5px;
+}
+</style>
 {/block}
